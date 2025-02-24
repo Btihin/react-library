@@ -19,7 +19,7 @@ export interface IListItemDetailProps {
   typ: DataType;
 }
 
-const ListItemDetail = (props: IListItemDetailProps) => {
+export const ListItemDetail = (props: IListItemDetailProps) => {
   const idKey = useId();
   return (
     <ListItem key={idKey}>
@@ -38,8 +38,6 @@ const ListItemDetail = (props: IListItemDetailProps) => {
     </ListItem>
   );
 };
-
-export default ListItemDetail;
 
 export interface IListWrapperDetailProps {
   children: any;

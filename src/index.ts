@@ -52,6 +52,7 @@ export {
   IListItemDetailProps,
   IListWrapperDetailProps,
   ListWrapperDetail,
+  ListItemDetail,
 } from './components/list/ListItemDetail';
 
 export { NadpisSekce } from './components/list/NadpisSekce';

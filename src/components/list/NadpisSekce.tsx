@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+import { JSX } from 'react';
 
 export const NadpisSekce: React.FC<{ title: string }> = (
   props,
