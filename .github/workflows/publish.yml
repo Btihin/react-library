@@ -1,0 +1,28 @@
+name: Publish to GitHub Packages
+
+on:
+  push:
+    branches:
+      - main # Publikuj jen při pushnutí do mainu
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🟢 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18 # Verze Node.js, přizpůsob dle potřeby
+          registry-url: https://npm.pkg.github.com/
+
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🚀 Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.ACTION_PACKAGE_LIB_REG }}
