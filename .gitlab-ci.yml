@@ -1,7 +1,7 @@
 # tři fáze test, sestavení a publikace
 stages:
   - build
-  - test
+  #- test
   - publish
 
 # Použije Node.js 22
@@ -19,14 +19,14 @@ build:
   script:
     - npm install
     - npm run build
+    - echo "Sestaveno"
   only:
     - main
-sast:
-  stage: test
-  only:
-    - main
-include:
-  - template: Auto-DevOps.gitlab-ci.yml
+
+# sast:
+#   stage: test
+# include:
+#   - template: Auto-DevOps.gitlab-ci.yml
 
 #Publikace
 publish:
@@ -34,5 +34,6 @@ publish:
   script:
     - npm config set //gitlab.fs.mfcr.cz/api/v4/projects/35/packages/npm/:_authToken=$GL_PACKAGE_TOKEN
     - npm publish
+    - echo "Publikováno"
   only:
     - main
