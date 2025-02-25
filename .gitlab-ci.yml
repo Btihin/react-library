@@ -23,6 +23,8 @@ build:
     - main
 sast:
   stage: test
+  only:
+    - main
 include:
   - template: Auto-DevOps.gitlab-ci.yml
 
