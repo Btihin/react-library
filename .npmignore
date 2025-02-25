@@ -6,3 +6,4 @@ tests/
 *.test.ts
 *.spec.ts
 jest.config.js
+.npmrc
