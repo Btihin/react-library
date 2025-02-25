@@ -1,0 +1,9 @@
+node_modules/
+src/
+tests/
+.vscode/
+.idea/
+*.test.ts
+*.spec.ts
+jest.config.js
+.npmrc
