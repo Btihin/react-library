@@ -1,39 +1,39 @@
-# tři fáze test, sestavení a publikace
-stages:
-  - build
-  #- test
-  - publish
+# # tři fáze test, sestavení a publikace
+# stages:
+#   - build
+#   #- test
+#   - publish
 
-# Použije Node.js 22
-image: node:22
+# # Použije Node.js 22
+# image: node:22
 
-variables:
-  NODE_ENV: production
+# variables:
+#   NODE_ENV: production
 
-cache:
-  paths:
-    - node_modules/
+# cache:
+#   paths:
+#     - node_modules/
 
-build:
-  stage: build
-  script:
-    - npm install
-    - npm run build
-    - echo "Sestaveno"
-  only:
-    - main
+# build:
+#   stage: build
+#   script:
+#     - npm install
+#     - npm run build
+#     - echo "Sestaveno"
+#   only:
+#     - main
 
-# sast:
-#   stage: test
-# include:
-#   - template: Auto-DevOps.gitlab-ci.yml
+# # sast:
+# #   stage: test
+# # include:
+# #   - template: Auto-DevOps.gitlab-ci.yml
 
-#Publikace
-publish:
-  stage: publish
-  script:
-    - npm config set //gitlab.fs.mfcr.cz/api/v4/projects/35/packages/npm/:_authToken=$GL_PACKAGE_TOKEN
-    - npm publish
-    - echo "Publikováno"
-  only:
-    - main
+# #Publikace
+# publish:
+#   stage: publish
+#   script:
+#     - npm config set //gitlab.fs.mfcr.cz/api/v4/projects/35/packages/npm/:_authToken=$GL_PACKAGE_TOKEN
+#     - npm publish
+#     - echo "Publikováno"
+#   only:
+#     - main
