@@ -6,12 +6,12 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
-import { useId } from 'react';
+import React, { useId } from 'react';
 import { DataType } from '../../utils/functions';
 import { SkeletonText } from '../SkeletonText';
 
 export interface IListItemDetailProps {
-  children?: any;
+  children?: React.ReactNode;
   nacitani: boolean;
   sirka: number;
   text: unknown;
