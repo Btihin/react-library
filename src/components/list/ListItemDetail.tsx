@@ -1,11 +1,5 @@
-import {
-  Grid,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  Paper,
-} from '@mui/material';
+import { List, ListItem, ListItemText, Paper } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import React, { useId } from 'react';
 import { DataType } from '../../utils/functions';
 import { SkeletonText } from '../SkeletonText';
@@ -20,21 +14,21 @@ export interface IListItemDetailProps {
 }
 
 export const ListItemDetail = (props: IListItemDetailProps) => {
+  const { children, nacitani, sirka, text, popisek, typ } = props;
   const idKey = useId();
   return (
-    <ListItem key={idKey}>
+    <ListItem key={idKey} secondaryAction={children || undefined}>
       <ListItemText
         primary={
           <SkeletonText
-            nacitani={props.nacitani}
-            text={props.text}
-            sirka={props.sirka}
-            typ={props.typ}
+            nacitani={nacitani}
+            text={text}
+            sirka={sirka}
+            typ={typ}
           />
         }
-        secondary={props.popisek}
+        secondary={popisek}
       />
-      <ListItemSecondaryAction>{props.children}</ListItemSecondaryAction>
     </ListItem>
   );
 };
@@ -45,7 +39,7 @@ export interface IListWrapperDetailProps {
 
 export const ListWrapperDetail = (props: IListWrapperDetailProps) => {
   return (
-    <Grid item lg={4} xs={12}>
+    <Grid size={{ lg: 4, xs: 12 }}>
       <Paper elevation={2} square>
         <List dense>{props.children}</List>
       </Paper>

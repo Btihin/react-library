@@ -86,12 +86,12 @@ export enum Format {
   Datum = 'datum',
   DatumCas = 'datumCas',
 }
-export type DataType =
-  | Format.Text
-  | Format.Cislo
-  | Format.Boolean
-  | Format.Datum
-  | Format.DatumCas;
+export type DataType = 'text' | 'cislo' | 'boolean' | 'datum' | 'datumCas';
+// | Format.Text
+// | Format.Cislo
+// | Format.Boolean
+// | Format.Datum
+// | Format.DatumCas;
 
 /**
  * Funkce pro ověření a naformátovaní hodnoty
